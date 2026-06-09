@@ -1,0 +1,39 @@
+.tic-tac-button {
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    border-width: 0px;
+    border-color: rgb(114, 48, 48);
+    width: 100px;
+    height: 100px;
+
+    text-align: center;
+    font-family: Verdana;
+    font-size: 35;
+    font-weight: bold;
+}
+
+.tic-tac-button:hover {
+    background-color: rgb(182, 182, 182);
+}
+
+body {
+    text-align: center;
+    background-color:black;
+}
+
+h1 {
+    font-family: Verdana;
+    color:lightgreen;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.game-board {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
