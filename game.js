@@ -1,8 +1,8 @@
 let team = Math.floor(Math.random() + 0.5); // 0 is X, 1 is O
-let slotContents = new Array(9).fill("");
-let boardRows = 3;
-let boardCols = 3;
-let winCondition = 3;
+let boardRows = parseInt(localStorage.getItem("rowSize"), 10);
+let boardCols = parseInt(localStorage.getItem("colSize"), 10);
+let slotContents = new Array(boardRows * boardCols).fill("");
+let winCondition = localStorage.getItem("winAmount");
 
 /*New, experimental stuff*/
 let currentGroupKey = 0;
@@ -19,6 +19,28 @@ I could definitely replace the way the data about the grid is stored into a 2d a
 
 let slotGroups = Array.from({ length: boardRows * boardCols}, () => Array(4).fill(-1))
 
+generateGrid();
+
+function generateGrid() {
+    let board = document.getElementById("game-board");
+    board.innerHTML = "";
+    
+    for (let i = 0; i < boardRows; i++) {
+        let row = document.createElement("div");
+        row.classList.add("row");
+        
+        for (let j = 0; j < boardCols; j++) {
+            let index = i * boardCols + j;
+            let button = document.createElement("button");
+            button.id = String(index);
+            button.classList.add("tic-tac-button");
+            button.setAttribute("onclick", `takeTurn('${index}')`);
+            row.appendChild(button);
+        }
+        board.appendChild(row);
+    }
+}
+
 function takeTurn(position){
     // Check that space isn't occupied
     if(slotContents[position] === "") {
@@ -29,12 +51,12 @@ function takeTurn(position){
             switch (team) {
                 case 0:
                     team = 1;
-                    document.getElementById(position).innerText = "X";
+                    document.getElementById(position).innerHTML = '<h1 class="h1-red"> X </h1>';
                     slotContents[position] = "X";
                     break;
                 case 1:
                     team = 0;
-                    document.getElementById(position).innerText = "O";
+                    document.getElementById(position).innerHTML = '<h1 class="h1-blue"> O </h1>';
                     slotContents[position] = "O";
                     break;
         }
@@ -46,7 +68,7 @@ function takeTurn(position){
 function restart(){
     slotContents.fill("");
     team = Math.floor(Math.random() + 0.5);
-    for(let i = 0; i < 9; i++){
+    for(let i = 0; i < (boardCols * boardRows); i++){
         document.getElementById(String(i)).innerText = "";
     }
     currentGroupKey = 0;
@@ -153,4 +175,8 @@ function isValidSlot(position, teamString){
     position > -1 &&
     position < (boardRows * boardCols) &&
      slotContents[position] === teamString;
+}
+
+function backToRules(){
+    window.location.href = 'rules.html';
 }

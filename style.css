@@ -1,5 +1,5 @@
 .tic-tac-button {
-    /*Button Body*/
+    /*Button*/
     background-color: rgb(255, 255, 255);
     width: 100px;
     height: 100px;
@@ -7,8 +7,11 @@
     /*Text*/
     text-align: center;
     font-family: Verdana;
-    font-size: 35;
+    font-size: 20;
     font-weight: bold;
+
+    justify-content: center;
+    align-items: center;
 
     transition: background-color 0.1s ease-in-out;
 }
@@ -18,8 +21,6 @@
 }
 
 .menu-button {
-    /* appearance: button; */
-
     /*Body color*/
     background-color: rgb(169, 169, 169);
     color: rgb(255, 0, 0);
@@ -87,6 +88,16 @@ h1:hover {
     /*Color*/
     color:rgb(58, 124, 255);
     -webkit-text-stroke: 2px rgb(14, 0, 124);
+}
+
+.h1-red {
+    /*Font*/
+    font-family: Verdana;
+    font-weight: bold;
+
+    /*Color*/
+    color:rgb(255, 58, 58);
+    -webkit-text-stroke: 2px rgb(132, 0, 0);
 }
 
 .row {
