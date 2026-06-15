@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Tic Tac Woah</title>
+    </head>
+    <div>
+        <h1>Rows: </h1>
+        <h1 class="h1-blue" id="rowSizeCount">3</h1>
+        <input type="range" min="3" max="13" value="3" id="rowSize">
+    </div>
+    <div>
+        <h1>Cols: </h1>
+        <h1 class="h1-blue" id="colSizeCount">3</h1>
+        <input type="range" min="3" max="13" value="3" id="colSize" style="margin-bottom: 50px;">
+    </div>
+    <div>
+        <h1>Win Amount: </h1>
+        <h1 class="h1-blue" id="winAmountCount">3</h1>
+        <input type="range" min="3" max="13" value="3" id="winAmount" style="margin-bottom: 50px;">
+    </div>
+    <button onclick="enter()" class="menu-button">Enter</button>
+    <script src="rules.js"></script>
+</html>
