@@ -1,20 +1,64 @@
 .tic-tac-button {
+    /*Button Body*/
     background-color: rgb(255, 255, 255);
-    border-radius: 3px;
-    border-width: 0px;
-    border-color: rgb(114, 48, 48);
     width: 100px;
     height: 100px;
 
+    /*Text*/
     text-align: center;
     font-family: Verdana;
     font-size: 35;
     font-weight: bold;
+
+    transition: background-color 0.1s ease-in-out;
 }
 
 .tic-tac-button:hover {
     background-color: rgb(182, 182, 182);
 }
+
+.menu-button {
+    /* appearance: button; */
+
+    /*Body color*/
+    background-color: rgb(169, 169, 169);
+    color: rgb(255, 0, 0);
+
+    /*Border*/
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: rgb(108, 0, 0);
+
+    /*Sizing*/
+    width: 200px;
+    height: 50px;
+
+    /*Font*/
+    font-weight: bold;
+    font-family: Verdana;
+    font-size: 17;
+
+    /*Transitions*/
+    transition: background-color 0.2s ease-in-out;
+}
+
+.menu-button:hover {
+    background-color: rgb(185, 185, 185);
+}
+
+.menu-button:active {
+    font-size: 17.5;
+}
+
+.menu-button-link {
+    text-decoration: none;
+}
+
+.menu-button-link:visited {
+    text-decoration: none;
+    color: currentColor;
+}
+
 
 body {
     text-align: center;
@@ -22,8 +66,27 @@ body {
 }
 
 h1 {
+    /*Font*/
     font-family: Verdana;
-    color:lightgreen;
+    font-weight: bold;
+
+    /*Color*/
+    color:rgb(106, 255, 106);
+    -webkit-text-stroke: 2px rgb(0, 124, 35);
+}
+
+h1:hover {
+    -webkit-text-stroke-width: 2.5px;
+}
+
+.h1-blue {
+    /*Font*/
+    font-family: Verdana;
+    font-weight: bold;
+
+    /*Color*/
+    color:rgb(58, 124, 255);
+    -webkit-text-stroke: 2px rgb(14, 0, 124);
 }
 
 .row {

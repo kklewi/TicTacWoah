@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Tic Tac Woah</title>
+    </head>
+
+    <div class="game-board">
+        <div class="row">
+            <button id="0" class="tic-tac-button" onclick="takeTurn('0')"></button>
+            <button id="1" class="tic-tac-button" onclick="takeTurn('1')"></button>
+            <button id="2" class="tic-tac-button" onclick="takeTurn('2')"></button>
+        </div>
+        <div class="row">
+            <button id="3" class="tic-tac-button" onclick="takeTurn('3')"></button>
+            <button id="4" class="tic-tac-button" onclick="takeTurn('4')"></button>
+            <button id="5" class="tic-tac-button" onclick="takeTurn('5')"></button>
+        </div>
+        <div class="row">
+            <button id="6" class="tic-tac-button" onclick="takeTurn('6')"></button>
+            <button id="7" class="tic-tac-button" onclick="takeTurn('7')"></button>
+            <button id="8" class="tic-tac-button" onclick="takeTurn('8')"></button>
+        </div>
+        <div>
+            <!--This section is temp, was added for local testing-->
+            <button class="menu-button" onclick="restart()">RESTART</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</html>
