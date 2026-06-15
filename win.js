@@ -1,0 +1,1 @@
+document.getElementById("winning-team").innerText = localStorage.getItem("winner");
