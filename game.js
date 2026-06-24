@@ -2,23 +2,24 @@ let team = Math.floor(Math.random() + 0.5); // 0 is X, 1 is O
 let boardRows = parseInt(localStorage.getItem("rowSize"), 10);
 let boardCols = parseInt(localStorage.getItem("colSize"), 10);
 let slotContents = new Array(boardRows * boardCols).fill("");
-let winCondition = localStorage.getItem("winAmount");
 
-/*New, experimental stuff*/
-let currentGroupKey = 0;
+/*Win algo vars*/
+let winCondition = localStorage.getItem("winAmount"); // Amount in a row required to win
+let currentGroupKey = 0; // Key used when creating a new group of connected pieces
+
+// Stores the amount in a certain direction for a given group, identified by its key
 let verticalGroups = new Map();
 let horizontalGroups = new Map();
 let topLeftDiagonalGroups = new Map();
 let topRightDiagonalGroups = new Map();
 
 
-/* 0 vertical, 1 is horizontal, 2 is top left diagonal, 3 is top right diagonal
-I am going to replace this soon because there has to be a cleaner way to structure this.
-I could definitely replace the way the data about the grid is stored into a 2d array
-*/
-
+// 0 vertical, 1 is horizontal, 2 is top left diagonal, 3 is top right diagonal for each given slot, stores
+// the key for the group, is -1 when no group has yet been assigned.
 let slotGroups = Array.from({ length: boardRows * boardCols}, () => Array(4).fill(-1))
 
+
+// Creates the game board
 generateGrid();
 
 function generateGrid() {

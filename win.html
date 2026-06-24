@@ -4,7 +4,7 @@
         <title>Tic Tac Woah</title>
     </head>
     <div>
-        <h1 id="winning-team" class="h1-blue">
+        <h1 id="winning-team">
             
         </h1>
     </div>
@@ -14,12 +14,12 @@
         </h1>
     </div>
     <div>
-        <div style="margin-bottom: 5px;">
-        <button onclick="window.location.href = 'game.html'" class="menu-button">Play Again</button>
-        </div>
-        <div>
-        <button onclick="window.location.href = 'start.html'" class="menu-button">Main Menu</button>
-        </div>
+        <button onclick="window.location.href = 'game.html'" style="background-image: url(./assets/restart.png);" 
+        class="icon-button"></button>
+        <button onclick="window.location.href = 'rules.html'" style="background-image: url(./assets/edit.png);" 
+        class="icon-button"></button>
+        <button onclick="window.location.href = 'start.html'" style="background-image: url(./assets/start.png);" 
+        class="icon-button"></button>
     </div>
     <script src="win.js"></script>
 </html>
