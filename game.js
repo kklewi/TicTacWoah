@@ -6,6 +6,7 @@ let slotContents = new Array(boardRows * boardCols).fill("");
 /*Win algo vars*/
 let winCondition = localStorage.getItem("winAmount"); // Amount in a row required to win
 let currentGroupKey = 0; // Key used when creating a new group of connected pieces
+let turnCounter = 0;
 
 // Stores the amount in a certain direction for a given group, identified by its key
 let verticalGroups = new Map();
@@ -45,22 +46,26 @@ function generateGrid() {
 function takeTurn(position){
     // Check that space isn't occupied
     if(slotContents[position] === "") {
+        turnCounter++;
         if (isWinner(winCondition, parseInt(position, 10), team ? "O" : "X")) {
             win();
         }
         else{
+            if (turnCounter == slotContents.length) {
+                tie();
+            }
             switch (team) {
                 case 0:
                     team = 1;
-                    document.getElementById(position).innerHTML = '<h1 class="h1-red"> X </h1>';
+                    document.getElementById(position).innerHTML = '<h1 class="red-text"> X </h1>';
                     slotContents[position] = "X";
                     break;
                 case 1:
                     team = 0;
-                    document.getElementById(position).innerHTML = '<h1 class="h1-blue"> O </h1>';
+                    document.getElementById(position).innerHTML = '<h1 class="blue-text"> O </h1>';
                     slotContents[position] = "O";
                     break;
-        }
+            }
         }
 
     }
@@ -82,8 +87,13 @@ function restart(){
 }
 
 function win(){
-    localStorage.setItem('winner', team ? "O" : "X")
-    window.location.href = 'win.html'
+    localStorage.setItem('winner', team ? "O" : "X");
+    window.location.href = 'win.html';
+}
+
+function tie(){
+    localStorage.setItem('winner', 'Tie');
+    window.location.href = 'win.html';
 }
 
 /**

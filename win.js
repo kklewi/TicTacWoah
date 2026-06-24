@@ -1,6 +1,12 @@
 let winningText = document.getElementById("winning-team");
 let winner = localStorage.getItem("winner");
 
-
-winningText.innerText = winner;
-winningText.classList.add(winner === "X" ? "h1-red" : "h1-blue");
+if (winner === "Tie") {
+    winningText.classList.add("purple-text");
+    document.getElementById("winning-state-text").remove();
+    winningText.innerText = winner + ", you're both bad!";
+}
+else {
+    winningText.classList.add(winner === "X" ? "red-text" : "blue-text");
+    winningText.innerText = winner;
+}
